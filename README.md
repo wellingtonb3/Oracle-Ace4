@@ -11,7 +11,7 @@
 ## 📌 Project Overview
 This MVP (Minimum Viable Product) demonstrates a full **End-to-End Data Pipeline** using the **New York Times Archive API**. The goal is to ingest, transform, and analyze over 7 years of global news data (2019–2026) using **Oracle Cloud Infrastructure (OCI)** and a **Medallion Architecture**.
 
-As an **Oracle ACE Apprentice**, I developed this project to showcase how **Object Storage** and **Autonomous Data Warehouse (ADW)** can be integrated into a high-performance **Lakehouse** using Python and SQL.
+I developed this project to showcase how **Object Storage** and **Autonomous Data Warehouse (ADW)** can be integrated into a high-performance **Lakehouse** using Python and SQL.
 
 ---
 
@@ -38,20 +38,16 @@ The data flows through three distinct stages to ensure quality and performance:
 ---
 
 ## 📂 Repository Structure
-* `/images`: Images from Data Sources and Creation on OCI.
-* `/processor_silver`: Pandas scripts for JSON-to-Parquet conversion.
-* `/sql_gold`: SQL scripts for DBMS_CLOUD External Tables.
-* `/notebooks`: Data Science EDA (Exploratory Data Analysis).
-* `/docs`: Architecture diagrams and NYT API documentation.
-
+* `/images`: Images from Data Sources, Architecture diagrams from NYT API and Creation on OCI.
+* `/python`: Pandas to acess NYT API scripts for JSON-to-Parquet and search for News
 ---
 
 ## 💡 How to Run
 1.  **API Key:** Obtain your key at the [NYT Developer Portal](https://developer.nytimes.com/).
 2.  **OCI Setup:** Create a bucket and a PAR URL.
-3.  **Run Ingestor:** Execute `ingest_nyt_to_datalake.py` to populate the Bronze layer.
-4.  **Run Processor:** Execute `batch_transform_silver.py` to generate Parquet files.
-5.  **Query SQL:** Use the provided SQL scripts in your **Autonomous Database** to query the data lake.
+3.  **Run Ingestor:** Execute first part of python file to populate the Bronze layer.
+4.  **Run Processor:** Execute second part of python file to generate Parquet files.
+
 
 ---
 
