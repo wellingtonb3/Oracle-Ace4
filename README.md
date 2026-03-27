@@ -1,4 +1,3 @@
-
 # 📰 NYT Data Lakehouse: Automated ETL Pipeline
 **Modern Data Engineering | Medallion Architecture | Oracle Cloud Infrastructure**
 
@@ -15,45 +14,53 @@ The data flows through a cloud-native pipeline designed for security and cost-ef
 ### 🥉 Bronze Layer (Raw)
 * **Source:** NYT Archive API.
 * **Ingestion:** Python scripts fetch monthly JSON archives.
-* **Storage:** **OCI Object Storage** using Pre-Authenticated Requests (PAR) to eliminate hardcoded credentials in the code.
+* **Storage:** **OCI Object Storage** using Pre-Authenticated Requests (PAR).
 
-* NYT Developer Portal:
+#### **Data Source Authentication**
+<p align="center">
+  <img src="images/NYTimes.png" alt="NY Times API" width="800">
+  <br><i>Authorized access via the NYT Developer Portal</i>
+</p>
 
-  **![NY Times](./images/NYTimes.png)
+---
 
 ### 🥈 Silver Layer (Cleaned)
 * **Processing:** Batch processing with **Pandas**.
-* **Transformation:** Column filtering (`headline`, `pub_date`, `section`), deduplication, and handling of null values.
-* **Storage:** **Apache Parquet** format for optimized storage and schema-on-read performance.
-*  *OCI Bucket Structure & Bronze/Silver/Gold Folder Prefixing.*
-*  
-  ![DataLake](./images/DataLake2.png)
+* **Transformation:** Column filtering, deduplication, and data type conversion.
+* **Storage:** **Apache Parquet** format for optimized performance.
 
+#### **Cloud Storage Organization**
+<p align="center">
+  <img src="images/DataLake2.png" alt="OCI Bucket Structure" width="800">
+  <br><i>OCI Bucket Structure with Bronze/Silver/Gold folder prefixing</i>
+</p>
+
+---
 
 ### 🥇 Gold Layer (Analytics)
 * **Integration:** **Oracle DBMS_CLOUD** package.
-* **Outcome:** External Tables in an **Autonomous Data Warehouse (ADW)**, enabling complex SQL analytics without moving the data out of Object Storage.
-*Python Terminal Querying the Data Lake: 
-**
-![Results](./images/results.png):
+* **Outcome:** External Tables in **Autonomous Data Warehouse (ADW)**.
+
+#### **Final Output & Querying**
+<p align="center">
+  <img src="images/results.png" alt="Query Results" width="800">
+  <br><i>Python Terminal execution and Data Lake results</i>
+</p>
 
 ---
 
 ## 🚀 Engineering Highlights
-* **Security First:** Utilized **OCI PARs** for secure API-to-Cloud communication, adhering to the principle of least privilege.
-* **Schema-on-Read:** Implemented a true Lakehouse approach where the database queries Parquet files directly in Object Storage, reducing storage costs.
-* **Scalability:** Designed to handle thousands of articles per month with a focus on data type conversion and 2-decimal precision for any numerical metrics.
-* **Oracle ACE Apprentice Standards:** Built entirely on the OCI Free Tier, demonstrating high-performance engineering within resource constraints.
+* **Security First:** Utilized **OCI PARs** for secure API-to-Cloud communication.
+* **Schema-on-Read:** Database queries Parquet files directly in Object Storage.
+* **Oracle ACE Apprentice Standards:** Built entirely on the OCI Free Tier.
 
 ---
 
 ## 📂 Repository Structure
 * `/python`: Python scripts for API ingestion and Parquet conversion.
-* `/images`: Diagrams and API documentation.
+* `/images`: Diagrams, screenshots, and API documentation.
 
 ---
 
 ## 🏆 About the Author
-**Wellington Lacerda**
-*Computer Engineering Student @ UNIVESP | Oracle ACE Apprentice*
-Specializing in Cloud Architecture, Data Engineering, and IoT.
+**Wellington Lacerda** *Computer Engineering Student @ UNIVESP | Oracle ACE Apprentice*
