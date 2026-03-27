@@ -27,6 +27,9 @@ The data flows through three distinct stages to ensure quality and performance:
 3.  **🥇 Gold Layer (Analytics):** * **Process:** **Oracle DBMS_CLOUD** integration.
     * **Outcome:** External Tables in **Autonomous Database** enabling SQL analytics and Business Intelligence.
 
+
+![DataLake](./images/DataLake1.png)
+![DataLake](./images/DataLake2.png)
 ---
 
 ## 🚀 Key Features
