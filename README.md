@@ -37,14 +37,14 @@ The data flows through three distinct stages to ensure quality and performance:
 * **Cloud-Native Security:** Uses **OCI PARs** for secure API-to-Cloud communication without hardcoded credentials.
 * **Cost Efficiency:** Built entirely on the **OCI Free Tier**, utilizing high-compression Parquet files to minimize storage footprint.
 * **Schema-on-Read:** Implements a Data Lakehouse approach where the database queries files directly in Object Storage.
-![DataLake](./images/DataLake2.png)
+![NY Times](./images/NYTimes.png)
 ---
 
 ## 📂 Repository Structure
 * `/images`: Images from Data Sources, Architecture diagrams from NYT API and Creation on OCI.
 * `/python`: Pandas to acess NYT API scripts for JSON-to-Parquet and search for News
 
-![DataLake](./images/DataLake2.png)
+![Uploaded](./images/uploaded.png)
 ---
 
 ## 💡 How to Run
@@ -53,7 +53,7 @@ The data flows through three distinct stages to ensure quality and performance:
 3.  **Run Ingestor:** Execute first part of python file to populate the Bronze layer.
 4.  **Run Processor:** Execute second part of python file to generate Parquet files.
 
-![DataLake](./images/DataLake2.png)
+![Results](./images/resutls.png)
 ---
 
 ## 🏆 Oracle ACE Apprentice Milestone
