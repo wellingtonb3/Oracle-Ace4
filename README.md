@@ -1,63 +1,59 @@
-# 📰 NYT Data Lakehouse: Automated ETL Pipeline with OCI
-### *Modern Data Engineering | Medallion Architecture | Oracle Cloud Infrastructure*
 
-![Oracle Cloud](https://img.shields.io/badge/Oracle-Cloud-red?style=for-the-badge&logo=oracle)
-![Python](https://img.shields.io/badge/Python-3.x-blue?style=for-the-badge&logo=python)
-![Pandas](https://img.shields.io/badge/Pandas-Data_Analysis-150458?style=for-the-badge&logo=pandas)
-![Parquet](https://img.shields.io/badge/Format-Apache_Parquet-6DB33F?style=for-the-badge&logo=apache)
+# 📰 NYT Data Lakehouse: Automated ETL Pipeline
+**Modern Data Engineering | Medallion Architecture | Oracle Cloud Infrastructure**
 
 ## 📌 Project Overview
-This MVP (Minimum Viable Product) demonstrates a full **End-to-End Data Pipeline** using the **New York Times Archive API**. The goal is to ingest, transform, and analyze over 7 years of global news data (2019–2026) using **Oracle Cloud Infrastructure (OCI)** and a **Medallion Architecture**.
+This project implements a scalable **Data Lakehouse** using the New York Times Archive API. It demonstrates a complete end-to-end pipeline, ingesting over 7 years of global news data (2019–2026) into **Oracle Cloud Infrastructure (OCI)**. 
 
-I developed this project to showcase how **Object Storage** and **Autonomous Data Warehouse (ADW)** can be integrated into a high-performance **Lakehouse** using Python and SQL.
-
-![NY Times](./images/NYTimes.png)
+By leveraging the **Medallion Architecture**, I’ve ensured that raw data is transformed into high-value business intelligence through a structured validation process.
 
 ---
 
-## 🛠 Technical Architecture (Medallion)
-The data flows through three distinct stages to ensure quality and performance:
+## 🏗 System Architecture
+The data flows through a cloud-native pipeline designed for security and cost-efficiency:
 
-1.  **🥉 Bronze Layer (Raw):** * **Source:** NYT Archive API.
-    * **Process:** Python script fetches full monthly archives (~20MB/month).
-    * **Storage:** Raw JSON files stored in OCI Object Storage via **Pre-Authenticated Requests (PAR)**.
-2.  **🥈 Silver Layer (Cleaned):** * **Process:** Batch processing using **Pandas**. 
-    * **Transformation:** Filtering specific columns (`headline`, `pub_date`, `section`), handling missing values, and data type conversion.
-    * **Storage:** Optimized **Apache Parquet** files for high-speed querying.
-3.  **🥇 Gold Layer (Analytics):** * **Process:** **Oracle DBMS_CLOUD** integration.
-    * **Outcome:** External Tables in **Autonomous Database** enabling SQL analytics and Business Intelligence.
+### 🥉 Bronze Layer (Raw)
+* **Source:** NYT Archive API.
+* **Ingestion:** Python scripts fetch monthly JSON archives.
+* **Storage:** **OCI Object Storage** using Pre-Authenticated Requests (PAR) to eliminate hardcoded credentials in the code.
+
+* NYT Developer Portal:
+
+  **![NY Times](./images/NYTimes.png)
+
+### 🥈 Silver Layer (Cleaned)
+* **Processing:** Batch processing with **Pandas**.
+* **Transformation:** Column filtering (`headline`, `pub_date`, `section`), deduplication, and handling of null values.
+* **Storage:** **Apache Parquet** format for optimized storage and schema-on-read performance.
+*  *OCI Bucket Structure & Bronze/Silver/Gold Folder Prefixing.*
+*  
+  ![DataLake](./images/DataLake2.png)
 
 
-![DataLake](./images/DataLake1.png)
-![DataLake](./images/DataLake2.png)
+### 🥇 Gold Layer (Analytics)
+* **Integration:** **Oracle DBMS_CLOUD** package.
+* **Outcome:** External Tables in an **Autonomous Data Warehouse (ADW)**, enabling complex SQL analytics without moving the data out of Object Storage.
+*Python Terminal Querying the Data Lake: 
+**
+![Results](./images/results.png):
+
 ---
 
-## 🚀 Key Features
-* **Historical Depth:** Ingests thousands of articles per month from 2019 to 2026.
-* **Cloud-Native Security:** Uses **OCI PARs** for secure API-to-Cloud communication without hardcoded credentials.
-* **Cost Efficiency:** Built entirely on the **OCI Free Tier**, utilizing high-compression Parquet files to minimize storage footprint.
-* **Schema-on-Read:** Implements a Data Lakehouse approach where the database queries files directly in Object Storage.
+## 🚀 Engineering Highlights
+* **Security First:** Utilized **OCI PARs** for secure API-to-Cloud communication, adhering to the principle of least privilege.
+* **Schema-on-Read:** Implemented a true Lakehouse approach where the database queries Parquet files directly in Object Storage, reducing storage costs.
+* **Scalability:** Designed to handle thousands of articles per month with a focus on data type conversion and 2-decimal precision for any numerical metrics.
+* **Oracle ACE Apprentice Standards:** Built entirely on the OCI Free Tier, demonstrating high-performance engineering within resource constraints.
 
 ---
 
 ## 📂 Repository Structure
-* `/images`: Images from Data Sources, Architecture diagrams from NYT API and Creation on OCI.
-* `/python`: Pandas to acess NYT API scripts for JSON-to-Parquet and search for News
-
-![Uploaded](./images/uploaded.png)
----
-
-## 💡 How to Run
-1.  **API Key:** Obtain your key at the [NYT Developer Portal](https://developer.nytimes.com/).
-2.  **OCI Setup:** Create a bucket and a PAR URL.
-3.  **Run Ingestor:** Execute first part of python file to populate the Bronze layer.
-4.  **Run Processor:** Execute second part of python file to generate Parquet files.
-
-![Results](./images/results.png)
----
-
-## 🏆 Oracle ACE Apprentice Milestone
-This project highlights my expertise in **OCI Architecture** and **Data Engineering**. It proves that I can handle large-scale data ingestion and transformation using industry-standard tools and Oracle’s best-in-class cloud database services.
+* `/python`: Python scripts for API ingestion and Parquet conversion.
+* `/images`: Diagrams and API documentation.
 
 ---
-*Developed by Wellington - Computer Engineering Student & Oracle ACE Apprentice*
+
+## 🏆 About the Author
+**Wellington Lacerda**
+*Computer Engineering Student @ UNIVESP | Oracle ACE Apprentice*
+Specializing in Cloud Architecture, Data Engineering, and IoT.
