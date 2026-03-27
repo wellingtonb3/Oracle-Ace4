@@ -13,6 +13,8 @@ This MVP (Minimum Viable Product) demonstrates a full **End-to-End Data Pipeline
 
 I developed this project to showcase how **Object Storage** and **Autonomous Data Warehouse (ADW)** can be integrated into a high-performance **Lakehouse** using Python and SQL.
 
+![NY Times](./images/NYTimes.png)
+
 ---
 
 ## 🛠 Technical Architecture (Medallion)
@@ -37,7 +39,7 @@ The data flows through three distinct stages to ensure quality and performance:
 * **Cloud-Native Security:** Uses **OCI PARs** for secure API-to-Cloud communication without hardcoded credentials.
 * **Cost Efficiency:** Built entirely on the **OCI Free Tier**, utilizing high-compression Parquet files to minimize storage footprint.
 * **Schema-on-Read:** Implements a Data Lakehouse approach where the database queries files directly in Object Storage.
-![NY Times](./images/NYTimes.png)
+
 ---
 
 ## 📂 Repository Structure
