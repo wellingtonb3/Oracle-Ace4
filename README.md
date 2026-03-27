@@ -53,7 +53,7 @@ The data flows through three distinct stages to ensure quality and performance:
 3.  **Run Ingestor:** Execute first part of python file to populate the Bronze layer.
 4.  **Run Processor:** Execute second part of python file to generate Parquet files.
 
-![Results](./images/resutls.png)
+![Results](./images/results.png)
 ---
 
 ## 🏆 Oracle ACE Apprentice Milestone
