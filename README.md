@@ -1,5 +1,3 @@
-# Oracle-Ace4
-
 # 📰 NYT Data Lakehouse: Automated ETL Pipeline with OCI
 ### *Modern Data Engineering | Medallion Architecture | Oracle Cloud Infrastructure*
 
